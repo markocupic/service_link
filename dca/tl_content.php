@@ -193,7 +193,7 @@ class ce_serviceLink extends Backend
      */
     protected function getFaIds()
     {
-        $ymlFileSRC = dirname(__DIR__) . '/yml/icons.yml';
+        $ymlFileSRC = TL_ROOT .  '/system/modules/service_link/yml/icons.yml';
         $strYml = file_get_contents($ymlFileSRC);
         $pattern = '/id:([\s]*)(.*)([\s]*)/';
         if(preg_match_all ($pattern, $strYml, $matches))
