@@ -1,0 +1,46 @@
+{
+  "name": "markocupic/service_link",
+  "description": "Add a FontAwesome service icon link as Contao frontend-content-element.",
+  "keywords": [
+    "contao",
+    "frontend",
+    "service-link",
+    "Font-Awesome"
+  ],
+  "type": "contao-module",
+  "license": "LGPL-3.0+",
+  "authors": [
+    {
+      "name": "Marko Cupic",
+      "email": "m.cupic@gmx.ch",
+      "homepage": "https://github.com/markocupic",
+      "role": "Developer"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/markocupic/service_link/issues",
+    "source": "https://github.com/markocupic/service_link"
+  },
+  "require": {
+    "php": ">=5.3",
+    "contao/core": ">=3.2,<4",
+    "contao-community-alliance/composer-plugin": "*",
+  },
+  "replace": {
+  },
+  "conflict": {
+    "contao/core": "3.0.*"
+  },
+  "autoload": {
+    "classmap": [
+      ""
+    ]
+  },
+  "extra": {
+    "contao": {
+      "sources": {
+        "": "system/modules/service_link"
+      }
+    }
+  }
+}
