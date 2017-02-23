@@ -33,5 +33,6 @@ ClassLoader::addClasses(array
  */
 TemplateLoader::addFiles(array
 (
-	'ce_servicelink'       => 'system/modules/service_link/templates',
+	'ce_servicelink'       => 'system/modules/service_link/templates/frontend',
+	'be_servicelink'       => 'system/modules/service_link/templates/backend',
 ));

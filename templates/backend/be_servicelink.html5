@@ -1,0 +1,17 @@
+<div class="ce_serviceLink block">
+    <div class="service-link-wrapper">
+
+        <div class="block service-link-icon">
+            <i class="fa <?= $this->faIcon ?> <?= $this->iconClass ?>"></i>
+        </div>
+
+        <h2 class="service-link-headline"><?= $this->headline ?></h2>
+
+        <div class="service-link-text"><?= $this->serviceLinkText ?></div>
+
+        <div class="service-link-button">
+            <a href="Mitglieder" onclick="javascript:return false" class="<?= $this->buttonClass ?>"><?= $this->buttonText ?></a>
+        </div>
+
+    </div>
+</div>

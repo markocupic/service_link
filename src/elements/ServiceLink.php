@@ -31,10 +31,22 @@ class ServiceLink extends \ContentElement
      */
     public function generate()
     {
-
-        if ($this->buttonJumpTo === '')
+        if(TL_MODE == BE)
         {
-            return '';
+
+            $this->strTemplate = 'be_servicelink';
+
+            /** @var \BackendTemplate|object $objTemplate */
+            $objTemplate = new \BackendTemplate($this->strTemplate);
+
+            $this->Template = $objTemplate;
+            $this->Template->faIcon = $this->faIcon;
+            $this->Template->faIcon = $this->faIcon;
+            $this->Template->iconClass = $this->iconClass;
+            $this->Template->headline = $this->headline;
+            $this->Template->serviceLinkText = $this->serviceLinkText;
+            $this->Template->buttonClass = $this->buttonClass;
+            $this->Template->buttonText = $this->buttonText;
         }
 
         return parent::generate();

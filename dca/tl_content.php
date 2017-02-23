@@ -99,31 +99,34 @@ class ce_serviceLink extends Backend
             }
         }
         // Load Font Awesome
-        $GLOBALS['TL_CSS'][] = "https://maxcdn.bootstrapcdn.com/font-awesome/" . SERVICE_LINK_FONTAWESOME_VERSION. "/css/font-awesome.min.css";
         $arrFaIds = $this->getFaIds();
-        // Build radio-button-list
         $html = '<fieldset id="ctrl_faIcon" class="tl_radio_container">';
-        $html .= '<h3><label>Icon picker</label></h3>';
+        // Filter
+        $html .= '<h3><label>' . $GLOBALS['TL_LANG']['tl_content']['faIconFilter'] . '</label></h3>';
+        $html .= '<input type="text" id="faClassFilter" class="tl_text fa-class-filter" placeholder="filter">';
 
-        $html .= '<div id="iconBox" style="border:1px solid #aaa;height:600px;overflow: scroll;">';
-        $html .= '<div style="position:relative;display:flex;flex-wrap:wrap">';
+        // Build radio-button-list
+        $html .= '<h3><label>Icon picker</label></h3>';
+        $html .= '<div id="iconBox">';
         $i = 0;
-        foreach ($arrFaIds as $strClass)
+        foreach ($arrFaIds as $faClass)
         {
-            $checked = $cssClass = $color = $bgcolor = '';
-            if($dc->activeRecord->faIcon == 'fa-' . $strClass)
+            $checked = $cssClassChecked = $cssClassCheckedWithAttribute = '';
+            if($dc->activeRecord->faIcon == 'fa-' . $faClass)
             {
                 $checked = ' checked="checked"';
-                $cssClass = ' class="checked"';
-                $color = 'color:#fff;';
-                $bgcolor = 'background-color:#ebfdd7;';
+                $cssClassChecked = ' checked';
+
+                $cssClassCheckedWithAttribute = ' class="checked"';
             }
 
-            $html .= '<div style="width:22%;line-height:2em;padding:5px;' . $bgcolor . $color . '" title="fa-' . $strClass . '" class="font-awesome-icon-item" data-faClass="fa-' . $strClass . '"><input' . $cssClass . ' id="faIcon_' . $i . '" type="radio" name="faIcon" style="display:inline-block;margin-right:4px;" value="fa-' . $strClass . '"' . $checked . '><span style="display:inline-block; color:#333;" class="fa fa-2x fa-fw ' . 'fa-' . $strClass . '"></span> <div style="display:inline-block;margin-left:4px;">' . StringUtil::substr($strClass, 15) . '</div></div>';
-
+            $html .= '<div title="fa-' . $faClass . '" class="font-awesome-icon-item' . $cssClassChecked . '" data-faClass="fa-' . $faClass . '">';
+            $html .= '<input' . $cssClassCheckedWithAttribute . ' id="faIcon_' . $i . '" type="radio" name="faIcon" value="fa-' . $faClass . '"' . $checked .'>';
+            $html .= '<i class="fa fa-2x fa-fw fa-' . $faClass . '"></i>';
+            $html .= '<div>' . StringUtil::substr($faClass, 15) . '</div>';
+            $html .= '</div>';
             $i++;
         }
-        $html .= '</div>';
         $html .= '</div>';
         $html .= '<p class="tl_help tl_tip" title="">' . $GLOBALS['TL_LANG']['tl_content']['faIcon'][1] . '</p>';
 
@@ -131,52 +134,30 @@ class ce_serviceLink extends Backend
         $html .= '
         <script>
             window.addEvent("domready", function(event) {
-                if($$("input.checked").length){
+                if($$("#ctrl_faIcon #iconBox .checked").length){
                     // Scroll to selected icon
-                    var myFx = new Fx.Scroll(document.id("iconBox")).toElement($$("input.checked")[0]);
+                    var myFx = new Fx.Scroll(document.id("iconBox")).toElement($$("#ctrl_faIcon #iconBox .checked")[0]);
                 }
                 $$("#iconBox input").addEvent("click", function(event){
-                    $$("#iconBox input").each(function(el){
-                        el.removeClass("checked");
-                        el.getParent("div").setStyles({
-                            "background-color": "inherit",
-                            "color": "inherit"
-                        });
-                    });
-                    this.getParent("div").setStyles({
-                        "background-color": "#ebfdd7"
-                    });
+                    $$("#ctrl_faIcon #iconBox .checked").removeClass("checked");
+                    this.getParent("div").addClass("checked");
                 });
 
-                // Creating the filter input
-                var filterInput = new Element("input", {
-                    "type": "text",
-                    "placeholder": "filter",
-                    "class": "tl_text fa-class-filter",
-                    id: "faClassFilter",
-                    events: {
-                        input: function(){
-                            var strFilter = this.getProperty("value").trim(" ");
-                            var itemCollection = $$(".font-awesome-icon-item");
-                            itemCollection.each(function(el){
-                                el.setStyle("display","block");
-                                if(strFilter != "")
-                                {
-                                    if(el.getProperty("data-faClass").contains(strFilter) === false)
-                                    {
-                                        el.setStyle("display","none");
-                                    }
-                                }
-                            });
+                // Add event to filter input
+                $$("input#faClassFilter").addEvent("input", function(event){
+                    var strFilter = this.getProperty("value").trim(" ");
+                    var itemCollection = $$(".font-awesome-icon-item");
+                    itemCollection.each(function(el){
+                        el.setStyle("display","inherit");
+                        if(strFilter != "")
+                        {
+                            if(el.getProperty("data-faClass").contains(strFilter) === false)
+                            {
+                                el.setStyle("display","none");
+                            }
                         }
-                    }
+                    });
                 });
-                // Add a label
-                filterInput.inject("ctrl_faIcon", "before");
-                var elLabel = Elements.from("<label><h3>' . $GLOBALS['TL_LANG']['tl_content']['faIconFilter'] . '</h3></label>");
-                elLabel.inject("faClassFilter", "before");
-
-
             });
         </script>
         ';

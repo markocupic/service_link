@@ -2,14 +2,14 @@
 <div class="service-link-wrapper">
 
     <div class="block service-link-icon">
-        <span class="fa <?php echo $this->faIcon . ' ' . $this->iconClass; ?>"></span>
+        <i class="fa <?php echo $this->faIcon . ' ' . $this->iconClass; ?>"></i>
     </div>
 
     <!-- rounded icons
-    <span class="fa-stack fa-lg">
+    <i class="fa-stack fa-lg">
       <i class="fa fa-circle fa-stack-2x"></i>
       <i class="fa <?php echo $this->faIcon; ?> fa-stack-1x fa-inverse"></i>
-    </span>
+    </i>
     -->
 
     <<?php echo $this->hl; ?> class="service-link-headline">
