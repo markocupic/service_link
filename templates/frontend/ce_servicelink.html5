@@ -2,7 +2,13 @@
 <div class="service-link-wrapper">
 
     <div class="block service-link-icon">
-        <i class="fa <?php echo $this->faIcon . ' ' . $this->iconClass; ?>"></i>
+        <?php if ($this->buttonJumpTo): ?>
+        <a href="<?php echo $this->buttonJumpTo; ?>" class="<?php echo $this->buttonClass; ?>">
+        <?php endif; ?>
+            <i class="fa <?php echo $this->faIcon . ' ' . $this->iconClass; ?>"></i>
+        <?php if ($this->buttonJumpTo): ?>
+        </a>
+        <?php endif; ?>
     </div>
 
     <!-- rounded icons
