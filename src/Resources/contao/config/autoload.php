@@ -14,7 +14,7 @@
  */
 ClassLoader::addNamespaces(array
 (
-	'MCupic',
+	'Markocupic',
 ));
 
 
@@ -24,7 +24,7 @@ ClassLoader::addNamespaces(array
 ClassLoader::addClasses(array
 (
 	// Src
-	'MCupic\ServiceLink'      => 'system/modules/service_link/src/elements/ServiceLink.php',
+	'Markocupic\ServiceLink'      => 'system/modules/service_link/elements/ServiceLink.php',
 ));
 
 

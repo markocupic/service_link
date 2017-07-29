@@ -9,7 +9,7 @@ define('SERVICE_LINK_FONTAWESOME_VERSION', '4.7.0');
 
 
 // Content Elements
-array_insert($GLOBALS['TL_CTE'], 2, array('ce_serviceLink' => array('serviceLink' => 'MCupic\ServiceLink')));
+array_insert($GLOBALS['TL_CTE'], 2, array('ce_serviceLink' => array('serviceLink' => 'Markocupic\ServiceLink')));
 
 if (TL_MODE == 'FE')
 {
