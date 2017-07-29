@@ -1,14 +1,8 @@
 <div class="<?= $this->class ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
 <div class="service-link-wrapper">
 
-    <div class="block service-link-icon">
-        <?php if ($this->buttonJumpTo): ?>
-        <a href="<?php echo $this->buttonJumpTo; ?>" class="<?php echo $this->buttonClass; ?>">
-        <?php endif; ?>
-            <i class="fa <?php echo $this->faIcon . ' ' . $this->iconClass; ?>"></i>
-        <?php if ($this->buttonJumpTo): ?>
-        </a>
-        <?php endif; ?>
+    <div class="block service-link-icon" id="serviceLink<?= $this->id ?>">
+        <i class="fa <?php echo $this->faIcon . ' ' . $this->iconClass; ?>"></i>
     </div>
 
     <!-- rounded icons
@@ -34,24 +28,3 @@
 
  </div>
 </div>
-<script>
-    (function($){
-        $().ready(function() {
-            $('#serviceLink<?php echo $this->id; ?>').on('click', function(event){
-                event.preventDefault();
-                event.stopPropagation();
-                var link = $('#'+ this.id + ' .service-link-button a');
-                if(link.prop('href')){
-                    window.location.href = link.prop('href');
-                }
-            });
-            $('#serviceLink<?php echo $this->id; ?>').on('mousenter', function(event){
-               this.css('cursor', 'pointer');
-                event.preventDefault();
-                event.stopPropagation();
-            });
-        });
-    })(jQuery);
-</script>
-
-

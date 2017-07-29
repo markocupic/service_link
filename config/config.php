@@ -11,9 +11,13 @@ define('SERVICE_LINK_FONTAWESOME_VERSION', '4.7.0');
 // Content Elements
 array_insert($GLOBALS['TL_CTE'], 2, array('ce_serviceLink' => array('serviceLink' => 'MCupic\ServiceLink')));
 
+if (TL_MODE == 'FE')
+{
+    $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/service_link/assets/js/ce_servicelink.js|static';
+}
 
-if(TL_MODE == 'BE')
+if (TL_MODE == 'BE')
 {
     $GLOBALS['TL_CSS'][] = 'system/modules/service_link/assets/css/service_link.css|static';
-    $GLOBALS['TL_CSS'][] = 'system/modules/service_link/assets/fa/font-awesome-' . SERVICE_LINK_FONTAWESOME_VERSION. '/css/font-awesome.min.css';
+    $GLOBALS['TL_CSS'][] = 'system/modules/service_link/assets/fa/font-awesome-' . SERVICE_LINK_FONTAWESOME_VERSION . '/css/font-awesome.min.css';
 }
