@@ -1,7 +1,7 @@
 <div class="<?= $this->class ?> block"<?= $this->cssID ?><?php if ($this->style): ?> style="<?= $this->style ?>"<?php endif; ?>>
 <div class="service-link-wrapper">
 
-    <div class="block service-link-icon" id="serviceLink<?= $this->id ?>">
+    <div class="block service-link-icon wow fadeIn" id="serviceLink<?= $this->id ?>">
         <i class="fa <?php echo $this->faIcon . ' ' . $this->iconClass; ?>"></i>
     </div>
 
