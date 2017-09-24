@@ -2,28 +2,28 @@
 <div class="service-link-wrapper">
 
     <div class="block service-link-icon wow fadeIn" id="serviceLink<?= $this->id ?>">
-        <i class="fa <?php echo $this->faIcon . ' ' . $this->iconClass; ?>"></i>
+        <i class="fa <?= $this->faIcon ?> <?= $this->iconClass ?>"></i>
     </div>
 
     <!-- rounded icons
     <i class="fa-stack fa-lg">
       <i class="fa fa-circle fa-stack-2x"></i>
-      <i class="fa <?php echo $this->faIcon; ?> fa-stack-1x fa-inverse"></i>
+      <i class="fa <?= $this->faIcon ?> fa-stack-1x fa-inverse"></i>
     </i>
     -->
-    <<?php echo $this->hl; ?> class="service-link-headline">
-      <a href="<?php echo $this->buttonJumpTo; ?>"
-        <?php echo $this->headline; ?>
+    <<?= $this->hl ?> class="service-link-headline">
+      <a href="<?= $this->buttonJumpTo ?>" itemprop="url">
+        <?= $this->headline ?>
       </a>
-    </<?php echo $this->hl; ?>>
+    </<?= $this->hl ?>>
 
     <div class="service-link-text">
-        <?php echo $this->serviceLinkText; ?>
+        <?= $this->serviceLinkText ?>
     </div>
 
     <?php if ($this->buttonJumpTo): ?>
     <div class="service-link-button">
-        <a href="<?php echo $this->buttonJumpTo; ?>" class="<?php echo $this->buttonClass; ?>"><?php echo $this->buttonText; ?></a>
+        <a href="<?= $this->buttonJumpTo ?>" class="<?= $this->buttonClass ?>"><?= $this->buttonText ?></a>
     </div>
     <?php endif; ?>
 
