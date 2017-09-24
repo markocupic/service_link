@@ -11,11 +11,11 @@
       <i class="fa <?php echo $this->faIcon; ?> fa-stack-1x fa-inverse"></i>
     </i>
     -->
-    <a href="<?php echo $this->buttonJumpTo; ?>"
-      <<?php echo $this->hl; ?> class="service-link-headline">
+    <<?php echo $this->hl; ?> class="service-link-headline">
+      <a href="<?php echo $this->buttonJumpTo; ?>"
         <?php echo $this->headline; ?>
-      </<?php echo $this->hl; ?>>
-    </a>
+      </a>
+    </<?php echo $this->hl; ?>>
 
     <div class="service-link-text">
         <?php echo $this->serviceLinkText; ?>
