@@ -1,5 +1,6 @@
 <?php
 
+
 /**
  * Contao Open Source CMS
  *
@@ -175,12 +176,39 @@ class ce_serviceLink extends Backend
     protected function getFaIds()
     {
         $ymlFileSRC = TL_ROOT .  '/system/modules/service_link/yml/icons.yml';
+        /**
         $strYml = file_get_contents($ymlFileSRC);
         $pattern = '/id:([\s]*)(.*)([\s]*)/';
         if(preg_match_all ($pattern, $strYml, $matches))
         {
             return $matches[2];
         }
-        return array();
+         *
+         * */
+
+        //$value = Symfony\Component\Yaml\Yaml::parseFile($ymlFileSRC);
+        //die(print_r($value,true));
+
+        $arrMatches = array();
+        $arrFile = array_map('rtrim', file($ymlFileSRC));
+        $skip = false;
+        foreach($arrFile as $strLine)
+        {
+            $pattern = '/^([\s]*)(.*):/';
+            if(preg_match ($pattern, $strLine, $match))
+            {
+                if($skip === false)
+                {
+                    $arrMatches[] = $match[2];
+                    $skip = true;
+                }
+
+                if(strpos($strLine, 'unicode') !== false)
+                {
+                    $skip = false;
+                }
+            }
+        }
+        return $arrMatches;
     }
 }

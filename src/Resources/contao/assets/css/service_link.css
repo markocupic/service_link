@@ -28,7 +28,7 @@
     margin-right: 4px;
 }
 
-#ctrl_faIcon #iconBox > div > i.fa {
+#ctrl_faIcon #iconBox > div > [class*="fa-"] {
     color: #333;
 }
 
