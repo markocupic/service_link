@@ -17,6 +17,6 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  *
  * @author Marko Cupic <https://github.com/markocupic>
  */
-class MarkocupicServiceLinkBundleBundle extends Bundle
+class MarkocupicServiceLinkBundle extends Bundle
 {
 }
