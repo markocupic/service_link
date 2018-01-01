@@ -1,38 +1,32 @@
 {
-  "name": "markocupic/service_link",
-  "description": "Add a FontAwesome service icon link as Contao frontend-content-element.",
-  "keywords": [
-    "contao",
-    "frontend",
-    "service-link",
-    "Font-Awesome"
-  ],
-  "type": "contao-module",
+  "name": "markocupic/gallery-creator-bundle",
+  "keywords": ["contao","Gallery Creator","album plugin", "gallery_creator gallery-creator-bundle"],
+  "type": "contao-bundle",
+  "description": "Contao 4 Gallery Extension",
   "license": "LGPL-3.0+",
   "authors": [
     {
       "name": "Marko Cupic",
       "email": "m.cupic@gmx.ch",
-      "homepage": "https://github.com/markocupic",
+      "homepage": "https://4ae-racing-team.ch",
       "role": "Developer"
     }
   ],
   "support": {
-    "issues": "https://github.com/markocupic/service_link/issues",
-    "source": "https://github.com/markocupic/service_link"
+    "issues": "https://github.com/markocupic/gallery-creator-bundle/issues",
+    "source": "https://github.com/markocupic/gallery-creator-bundle",
+    "forum": "https://community.contao.org/de/showthread.php?22634-gallery_creator"
   },
   "require": {
-    "contao/core-bundle":"~3.2 || ~4.4",
-    "contao-community-alliance/composer-plugin":"~2.4 || ~3.0"
-  },
-  "replace": {
+    "contao/core-bundle": ">=4.3, <5"
   },
   "conflict": {
-    "contao/core": "3.0.*"
+    "contao/core": "*",
+    "markocupic/gallery_creator": "*"
   },
   "autoload": {
     "psr-4": {
-      "Markocupic\\ServiceLinkBundle\\": "src/"
+      "Markocupic\\GalleryCreatorBundle\\": "src/"
     },
     "classmap": [
       "src/Resources/contao"
@@ -41,24 +35,10 @@
       "src/Resources/contao/config",
       "src/Resources/contao/dca",
       "src/Resources/contao/languages",
-      "src/Resources/contao/templates",
-      "src/Resources/contao/assets",
-      "src/Resources/contao/yml"
+      "src/Resources/contao/templates"
     ]
   },
   "extra": {
-    "contao-manager-plugin": "Markocupic\\ServiceLinkBundle\\ContaoManager\\Plugin",
-
-    "contao": {
-      "sources": {
-        "src/Resources/contao/assets": "system/modules/service_link/assets",
-        "src/Resources/contao/config": "system/modules/service_link/config",
-        "src/Resources/contao/dca": "system/modules/service_link/dca",
-        "src/Resources/contao/languages": "system/modules/service_link/languages",
-        "src/Resources/contao/elements": "system/modules/service_link/elements",
-        "src/Resources/contao/templates": "system/modules/service_link/templates",
-        "src/Resources/contao/yml": "system/modules/service_link/yml"
-      }
-    }
+     "contao-manager-plugin": "Markocupic\\GalleryCreatorBundle\\ContaoManager\\Plugin"
   }
 }

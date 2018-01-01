@@ -13,7 +13,7 @@ array_insert($GLOBALS['TL_CTE'], 2, array('ce_serviceLink' => array('serviceLink
 
 if (TL_MODE == 'FE')
 {
-    $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/service_link/assets/js/ce_servicelink.js';
+    $GLOBALS['TL_JAVASCRIPT'][] = 'system/modules/service_link/assets/js/ce_servicelink.js|static';
 }
 
 if (TL_MODE == 'BE')
