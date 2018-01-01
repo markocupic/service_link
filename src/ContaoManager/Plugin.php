@@ -7,7 +7,7 @@
  * @see	       https://github.com/markocupic/gallery-creator-bundle
  *
  */
-namespace Markocupic\ServiceLinkBundle\ContaoManager;
+namespace Markocupic\GalleryCreatorBundle\ContaoManager;
 
 use Contao\ManagerPlugin\Bundle\Config\BundleConfig;
 use Contao\ManagerPlugin\Bundle\BundlePluginInterface;
