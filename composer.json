@@ -1,8 +1,8 @@
 {
-  "name": "markocupic/gallery-creator-bundle",
-  "keywords": ["contao","Gallery Creator","album plugin", "gallery_creator gallery-creator-bundle"],
+  "name": "markocupic/service_link",
+  "keywords": ["contao","Fontawesome","Service Link"],
   "type": "contao-bundle",
-  "description": "Contao 4 Gallery Extension",
+  "description": "Contao 4 Service Link extension",
   "license": "LGPL-3.0+",
   "authors": [
     {
@@ -13,20 +13,18 @@
     }
   ],
   "support": {
-    "issues": "https://github.com/markocupic/gallery-creator-bundle/issues",
-    "source": "https://github.com/markocupic/gallery-creator-bundle",
-    "forum": "https://community.contao.org/de/showthread.php?22634-gallery_creator"
+    "issues": "https://github.com/markocupic/service_link/issues",
+    "source": "https://github.com/markocupic/service_link"
   },
   "require": {
     "contao/core-bundle": ">=4.3, <5"
   },
   "conflict": {
-    "contao/core": "*",
-    "markocupic/gallery_creator": "*"
+    "contao/core": "*"
   },
   "autoload": {
     "psr-4": {
-      "Markocupic\\GalleryCreatorBundle\\": "src/"
+      "Markocupic\\ServiceLinkBundle\\": "src/"
     },
     "classmap": [
       "src/Resources/contao"
@@ -35,10 +33,11 @@
       "src/Resources/contao/config",
       "src/Resources/contao/dca",
       "src/Resources/contao/languages",
-      "src/Resources/contao/templates"
+      "src/Resources/contao/templates",
+      "src/Resources/contao/yml"
     ]
   },
   "extra": {
-     "contao-manager-plugin": "Markocupic\\GalleryCreatorBundle\\ContaoManager\\Plugin"
+     "contao-manager-plugin": "Markocupic\\ServiceLinkBundle\\ContaoManager\\Plugin"
   }
 }
