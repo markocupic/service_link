@@ -89,6 +89,7 @@ class ce_serviceLink extends Backend
     public function generatePicker($dc)
     {
 
+        $db = $this->Database->prepare('SELECT * FROM tl_content WHERE id=? LIMIT 0,1')->execute($dc->id);
         if (Input::post('FORM_SUBMIT'))
         {
             if (Input::post('faIcon') != '')
@@ -102,21 +103,27 @@ class ce_serviceLink extends Backend
         $arrFaIds = $this->getFaIds();
         $html = '<fieldset id="ctrl_faIcon" class="tl_radio_container">';
         // Filter
+        $html .= '<div class="widget">';
         $html .= '<h3><label>' . $GLOBALS['TL_LANG']['tl_content']['faIconFilter'] . '</label></h3>';
         $html .= '<input type="text" id="faClassFilter" class="tl_text fa-class-filter" placeholder="filter">';
+        $html .= '</div>';
 
         // Build radio-button-list
+        $html .= '<div class="widget">';
         $html .= '<h3><label>Icon picker</label></h3>';
         $html .= '<div id="iconBox">';
         $i = 0;
+        $selected = (string) $dc->activeRecord->faIcon;
         foreach ($arrFaIds as $faClass)
         {
+
             $checked = $cssClassChecked = $cssClassCheckedWithAttribute = '';
-            if($dc->activeRecord->faIcon == 'fa-' . $faClass)
+
+
+            if(strtolower(trim($db->faIcon)) == strtolower(trim('fa-' . $faClass)))
             {
                 $checked = ' checked="checked"';
                 $cssClassChecked = ' checked';
-
                 $cssClassCheckedWithAttribute = ' class="checked"';
             }
 
@@ -125,42 +132,17 @@ class ce_serviceLink extends Backend
             $html .= '<i class="fa fa-2x fa-fw fa-' . $faClass . '"></i>';
             $html .= '<div>' . StringUtil::substr($faClass, 15) . '</div>';
             $html .= '</div>';
+
             $i++;
         }
+
         $html .= '</div>';
         $html .= '<p class="tl_help tl_tip" title="">' . $GLOBALS['TL_LANG']['tl_content']['faIcon'][1] . '</p>';
+        $html .= '</div>';
 
-        // Javascript (Mootools)
-        $html .= '
-        <script>
-            window.addEvent("domready", function(event) {
-                if($$("#ctrl_faIcon #iconBox .checked").length){
-                    // Scroll to selected icon
-                    var myFx = new Fx.Scroll(document.id("iconBox")).toElement($$("#ctrl_faIcon #iconBox .checked")[0]);
-                }
-                $$("#iconBox input").addEvent("click", function(event){
-                    $$("#ctrl_faIcon #iconBox .checked").removeClass("checked");
-                    this.getParent("div").addClass("checked");
-                });
+        $html .= '</fieldset>';
 
-                // Add event to filter input
-                $$("input#faClassFilter").addEvent("input", function(event){
-                    var strFilter = this.getProperty("value").trim(" ");
-                    var itemCollection = $$(".font-awesome-icon-item");
-                    itemCollection.each(function(el){
-                        el.setStyle("display","inherit");
-                        if(strFilter != "")
-                        {
-                            if(el.getProperty("data-faClass").contains(strFilter) === false)
-                            {
-                                el.setStyle("display","none");
-                            }
-                        }
-                    });
-                });
-            });
-        </script>
-        ';
+
 
         return $html;
 

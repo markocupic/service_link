@@ -19,7 +19,7 @@
     height: 20px;
 }
 
-#ctrl_faIcon #iconBox > .checked {
+#ctrl_faIcon #iconBox  .checked {
     background-color: #ebfdd7;
 }
 
