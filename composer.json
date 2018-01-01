@@ -22,7 +22,8 @@
     "source": "https://github.com/markocupic/service_link"
   },
   "require": {
-    "contao/core-bundle": ">=4.4"
+    "contao/core-bundle":"~3.2 || ~4.4",
+    "contao-community-alliance/composer-plugin":"~2.4 || ~3.0"
   },
   "replace": {
   },
