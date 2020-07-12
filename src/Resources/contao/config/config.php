@@ -19,12 +19,12 @@ array_insert($GLOBALS['TL_CTE'], 2, array(
 
 if (TL_MODE == 'FE')
 {
-    $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/markocupicservicelink/js/ce_servicelink.js|static';
+    $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/markocupicservicelink/js/ce_servicelink.js';
 }
 
 if (TL_MODE == 'BE')
 {
-    $GLOBALS['TL_JAVASCRIPT'][] = 'bundles/markocupicservicelink/js/ce_servicelinkBe.js|static';
-    $GLOBALS['TL_CSS'][] = 'bundles/markocupicservicelink/css/service_link.css|static';
-    $GLOBALS['TL_CSS'][] = 'bundles/markocupicservicelink/fa/font-awesome-' . SERVICE_LINK_FONTAWESOME_VERSION . '/css/font-awesome.min.css';
+    $GLOBALS['TL_JAVASCRIPT'][] =   'bundles/markocupicservicelink/js/ce_serviceLinkBe.js';
+    $GLOBALS['TL_CSS'][] =          'bundles/markocupicservicelink/css/service_link.css';
+    $GLOBALS['TL_CSS'][] =          'bundles/markocupicservicelink/fa/font-awesome-' . SERVICE_LINK_FONTAWESOME_VERSION . '/css/font-awesome.min.css';
 }

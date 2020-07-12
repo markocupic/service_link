@@ -10,7 +10,6 @@
 
 namespace Markocupic;
 
-
 /**
  * Front end content element "service_link".
  *
@@ -31,9 +30,8 @@ class ServiceLink extends \ContentElement
      */
     public function generate()
     {
-        if(TL_MODE == BE)
+        if (TL_MODE == 'BE')
         {
-
             $this->strTemplate = 'be_servicelink';
 
             /** @var \BackendTemplate|object $objTemplate */
@@ -50,9 +48,7 @@ class ServiceLink extends \ContentElement
         }
 
         return parent::generate();
-
     }
-
 
     /**
      * Generate the content element
@@ -71,9 +67,7 @@ class ServiceLink extends \ContentElement
             $this->text = \StringUtil::toHtml5($this->text);
         }
 
-
         $this->Template->serviceLinkText = \StringUtil::encodeEmail($this->serviceLinkText);
         $this->Template->buttonJumpTo = $this->buttonJumpTo;
-
     }
 }

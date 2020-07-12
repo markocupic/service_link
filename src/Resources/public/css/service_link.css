@@ -20,7 +20,7 @@
 }
 
 #ctrl_faIcon #iconBox  .checked {
-    background-color: #ebfdd7;
+    background-color: red !important;
 }
 
 #ctrl_faIcon #iconBox > div > * {
